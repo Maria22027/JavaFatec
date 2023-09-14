@@ -1,0 +1,37 @@
+import java.util.Random;
+import java.util.Scanner;
+
+public class AdivinheONumero {
+    public static void main(String[] args) {
+
+        Random random = new Random();
+
+        int numeroAleatorio = random.nextInt(100) + 1;
+
+        Scanner scanner = new Scanner(System.in);
+
+        int tentativas = 0;
+        boolean acertou = false;
+
+        System.out.println("Adivinhe o numero entre 1 e 100.");
+
+        while (!acertou) {
+            System.out.print("Digite seu palpite: ");
+            int palpite = scanner.nextInt();
+            tentativas++;
+
+            if (palpite < numeroAleatorio) {
+                System.out.println("Seu palpite esta baixo. Tente novamente.");
+            } else if (palpite > numeroAleatorio) {
+                System.out.println("Seu palpite esta alto. Tente novamente.");
+            } else {
+                acertou = true;
+                System.out.println("Parabens! Voce acertou o numero " + numeroAleatorio + " em " + tentativas + " tentativas.");
+            }
+        }
+
+        scanner.close();
+    }
+}
+
+
