@@ -1,0 +1,32 @@
+import java.util.Random;
+
+public class ContandoImpares {
+    public static void main(String[] args) {
+
+        int tamanhoArray = 30;
+
+        Random random = new Random();
+
+        int[] numeros = new int[tamanhoArray];
+
+        for (int i = 0; i < tamanhoArray; i++) {
+            numeros[i] = random.nextInt(100);
+        }
+
+        int contagemImpares = 0;
+
+        for (int i = 0; i < tamanhoArray; i++) {
+            if (numeros[i] % 2 != 0) {
+                contagemImpares++;
+            }
+        }
+
+        System.out.println("Array de numeros:");
+
+        for (int i = 0; i < tamanhoArray; i++) {
+            System.out.print(numeros[i] + " ");
+        }
+
+        System.out.println("\nQuantidade de numeros impares: " + contagemImpares);
+    }
+}
