@@ -1,0 +1,27 @@
+import java.util.Random;
+
+public class SimulacaoJogoDados {
+    public static void main(String[] args) {
+
+        Random random = new Random();
+
+        int numLancamentos = 100;
+
+        int contagemSomaSete = 0;
+
+        for (int i = 0; i < numLancamentos; i++) {
+            int dado1 = random.nextInt(6) + 1;
+            int dado2 = random.nextInt(6) + 1;
+
+            int soma = dado1 + dado2;
+
+            if (soma == 7) {
+                contagemSomaSete++;
+            }
+        }
+
+        System.out.println("Resultados da simulacao:");
+        System.out.println("Numero de lancamentos: " + numLancamentos);
+        System.out.println("Numero de vezes que a soma foi igual a 7: " + contagemSomaSete);
+    }
+}
