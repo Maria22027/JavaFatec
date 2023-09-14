@@ -1,0 +1,49 @@
+import java.util.Scanner;
+
+public class GerenciadorNotas {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Digite a quantidade de disciplinas no semestre: ");
+        int quantidadeDisciplinas = scanner.nextInt();
+        scanner.nextLine(); // Limpar o buffer
+
+        System.out.print("Digite a média mínima para aprovação: ");
+        double mediaMinima = scanner.nextDouble();
+        scanner.nextLine(); // Limpar o buffer
+
+        String[] nomesDisciplinas = new String[quantidadeDisciplinas];
+        double[] notasP1 = new double[quantidadeDisciplinas];
+        double[] notasP2 = new double[quantidadeDisciplinas];
+        double[] notasTrabalho = new double[quantidadeDisciplinas];
+
+        for (int i = 0; i < quantidadeDisciplinas; i++) {
+            System.out.print("Digite o nome da disciplina " + (i + 1) + ": ");
+            nomesDisciplinas[i] = scanner.nextLine();
+
+            System.out.print("Digite a nota da P1: ");
+            notasP1[i] = scanner.nextDouble();
+
+            System.out.print("Digite a nota da P2: ");
+            notasP2[i] = scanner.nextDouble();
+
+            System.out.print("Digite a nota do trabalho: ");
+            notasTrabalho[i] = scanner.nextDouble();
+
+            scanner.nextLine(); // Limpar o buffer
+        }
+
+        System.out.println("\nBoletim do Aluno:\n");
+        for (int i = 0; i < quantidadeDisciplinas; i++) {
+            double media = (notasP1[i] + notasP2[i] + notasTrabalho[i]) / 3.0;
+            String situacao = media >= mediaMinima ? "Aprovado" : "Reprovado";
+
+            System.out.println("Disciplina: " + nomesDisciplinas[i]);
+            System.out.println("Média: " + media);
+            System.out.println("Situação: " + situacao);
+            System.out.println();
+        }
+
+        scanner.close();
+    }
+}
