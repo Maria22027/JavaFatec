@@ -1,0 +1,26 @@
+Questão 1
+
+import java.util.Random;
+
+public class NumerosPares {
+    public static void main(String[] args) {
+
+        int tamanhoArray = 10;
+
+        Random random = new Random();
+
+        int[] numeros = new int[tamanhoArray];
+
+        for (int i = 0; i < tamanhoArray; i++) {
+            numeros[i] = random.nextInt(100);
+        }
+
+        System.out.println("Numeros pares no array:");
+
+        for (int i = 0; i < tamanhoArray; i++) {
+            if (numeros[i] % 2 == 0) {
+                System.out.println(numeros[i]);
+            }
+        }
+    }
+}
