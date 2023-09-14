@@ -1,0 +1,31 @@
+import java.util.Random;
+
+public class MediaDeValores {
+    public static void main(String[] args) {
+        
+        int tamanhoArray = 20;
+
+        Random random = new Random();
+
+        int[] numeros = new int[tamanhoArray];
+
+        for (int i = 0; i < tamanhoArray; i++) {
+            numeros[i] = random.nextInt(100);
+        }
+
+        int soma = 0;
+        for (int i = 0; i < tamanhoArray; i++) {
+            soma += numeros[i];
+        }
+
+        double media = (double) soma / tamanhoArray;
+
+        System.out.println("Array de numeros:");
+
+        for (int i = 0; i < tamanhoArray; i++) {
+            System.out.print(numeros[i] + " ");
+        }
+
+        System.out.println("\nMedia dos numeros no array: " + media);
+    }
+}
