@@ -1,0 +1,36 @@
+import java.util.Random;
+
+public class NumeroMaximoMinimo {
+    public static void main(String[] args) {
+
+        int tamanhoArray = 15;
+
+        Random random = new Random();
+
+        int[] numeros = new int[tamanhoArray];
+
+        for (int i = 0; i < tamanhoArray; i++) {
+            numeros[i] = random.nextInt(100); 
+        }
+
+        int maior = numeros[0];
+        int menor = numeros[0];
+
+        for (int i = 1; i < tamanhoArray; i++) {
+            if (numeros[i] > maior) {
+                maior = numeros[i];
+            } else if (numeros[i] < menor) {
+                menor = numeros[i];
+            }
+        }
+        
+        System.out.println("Array de numeros:");
+
+        for (int i = 0; i < tamanhoArray; i++) {
+            System.out.print(numeros[i] + " ");
+        }
+
+        System.out.println("\nMaior valor: " + maior);
+        System.out.println("Menor valor: " + menor);
+    }
+}
