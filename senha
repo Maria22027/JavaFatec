@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+public class SenhaSecreta {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String senhaSecreta = "python123";
+        boolean senhaCorreta = false;
+
+        while (!senhaCorreta) {
+            System.out.print("Digite a senha: ");
+            String senhaDigitada = scanner.nextLine();
+
+            if (senhaDigitada.equals(senhaSecreta)) {
+                senhaCorreta = true;
+                System.out.println("Senha correta! Acesso concedido.");
+            } else {
+                System.out.println("Senha incorreta. Tentativa inválida.");
+            }
+        }
+
+        scanner.close();
+    }
+}
