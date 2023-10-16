@@ -1,0 +1,59 @@
+public class ClimaTempo {
+
+    private double temperatura;
+    private double umidade;
+    private String condicoes;
+
+    public ClimaTempo(double temperatura, double umidade, String condicoes) {
+        this.temperatura = temperatura;
+        this.umidade = umidade;
+        this.condicoes = condicoes;
+    }
+
+    public void registrarDados(double novaTemperatura, double novaUmidade, String novasCondicoes) {
+
+        this.temperatura = novaTemperatura;
+        this.umidade = novaUmidade;
+        this.condicoes = novasCondicoes;
+        System.out.println("Dados climáticos registrados: " +
+                "Temperatura: " + novaTemperatura + "°C, " +
+                "Umidade: " + novaUmidade + "%, " +
+                "Condições: " + novasCondicoes);
+    }
+
+    public void monitoramento() {
+        System.out.println("Monitorando as condições climáticas: " +
+                "Temperatura: " + temperatura + "°C, " +
+                "Umidade: " + umidade + "%, " +
+                "Condições: " + condicoes);
+    }
+
+    public void mudar(String novasCondicoes) {
+        this.condicoes = novasCondicoes;
+        System.out.println("Condições climáticas alteradas para: " + novasCondicoes);
+    }
+
+    public double getTemperatura() {
+        return temperatura;
+    }
+
+    public void setTemperatura(double temperatura) {
+        this.temperatura = temperatura;
+    }
+
+    public double getUmidade() {
+        return umidade;
+    }
+
+    public void setUmidade(double umidade) {
+        this.umidade = umidade;
+    }
+
+    public String getCondicoes() {
+        return condicoes;
+    }
+
+    public void setCondicoes(String condicoes) {
+        this.condicoes = condicoes;
+    }
+}
