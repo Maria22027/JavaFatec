@@ -1,0 +1,48 @@
+public class Programador {
+
+    private String linguagens;
+    private int experiencia;
+    private int projetos;
+
+    public Programador(String linguagens, int experiencia, int projetos) {
+        this.linguagens = linguagens;
+        this.experiencia = experiencia;
+        this.projetos = projetos;
+    }
+
+    public void desenvolver() {
+        System.out.println("Desenvolvendo utilizando as linguagens: " + linguagens);
+    }
+
+    public void planejar() {
+        System.out.println("Planejando um novo projeto com base na experiência de " + experiencia + " anos");
+    }
+
+    public void proteger() {
+        System.out.println("Protegendo o código e dados sensíveis nos projetos");
+    }
+
+    public String getLinguagens() {
+        return linguagens;
+    }
+
+    public void setLinguagens(String linguagens) {
+        this.linguagens = linguagens;
+    }
+
+    public int getExperiencia() {
+        return experiencia;
+    }
+
+    public void setExperiencia(int experiencia) {
+        this.experiencia = experiencia;
+    }
+
+    public int getProjetos() {
+        return projetos;
+    }
+
+    public void setProjetos(int projetos) {
+        this.projetos = projetos;
+    }
+}
