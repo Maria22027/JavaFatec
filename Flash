@@ -1,0 +1,49 @@
+public class Flash {
+
+    private String cientista;
+    private String habilidade;
+    private String nome;
+
+    public Flash(String cientista, String habilidade, String nome) {
+        this.cientista = cientista;
+        this.habilidade = habilidade;
+        this.nome = nome;
+    }
+
+    public void combaterOCrime() {
+        System.out.println(nome + " está combatendo o crime com sua habilidade: " + habilidade);
+    }
+
+    public void salvarPessoas() {
+        System.out.println(nome + " está salvando pessoas com sua habilidade: " + habilidade);
+    }
+
+    public void velocidadeSuperSonica() {
+        System.out.println(nome + " está utilizando velocidade super sônica para se deslocar rapidamente.");
+    }
+
+
+    public String getCientista() {
+        return cientista;
+    }
+
+    public void setCientista(String cientista) {
+        this.cientista = cientista;
+    }
+
+    public String getHabilidade() {
+        return habilidade;
+    }
+
+    public void setHabilidade(String habilidade) {
+        this.habilidade = habilidade;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+}
