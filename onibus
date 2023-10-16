@@ -1,0 +1,49 @@
+public class RotaOnibus {
+
+    private double distanciaPercorrida;
+    private String origem;
+    private int duracao;
+
+    public RotaOnibus(double distanciaPercorrida, String origem, int duracao) {
+        this.distanciaPercorrida = distanciaPercorrida;
+        this.origem = origem;
+        this.duracao = duracao;
+    }
+
+    public double calcularTempoEstimado(double velocidadeMedia) {
+        return distanciaPercorrida / velocidadeMedia;
+    }
+
+    public double obterDistancia() {
+        return distanciaPercorrida;
+    }
+
+    public void iniciarViagem() {
+        System.out.println("Viagem iniciada de " + origem);
+    }
+
+
+    public double getDistanciaPercorrida() {
+        return distanciaPercorrida;
+    }
+
+    public void setDistanciaPercorrida(double distanciaPercorrida) {
+        this.distanciaPercorrida = distanciaPercorrida;
+    }
+
+    public String getOrigem() {
+        return origem;
+    }
+
+    public void setOrigem(String origem) {
+        this.origem = origem;
+    }
+
+    public int getDuracao() {
+        return duracao;
+    }
+
+    public void setDuracao(int duracao) {
+        this.duracao = duracao;
+    }
+}
