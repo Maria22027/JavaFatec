@@ -1,0 +1,49 @@
+public class EventoHistorico {
+
+    private String consequencias;
+    private String descobertas;
+    private String localizacao;
+
+    public EventoHistorico(String consequencias, String descobertas, String localizacao) {
+        this.consequencias = consequencias;
+        this.descobertas = descobertas;
+        this.localizacao = localizacao;
+    }
+
+    public void analisarImpacto() {
+        System.out.println("Analisando o impacto do evento histórico: " + consequencias);
+    }
+
+    public void pesquisarDetalhes() {
+        System.out.println("Pesquisando detalhes do evento histórico: " + descobertas);
+    }
+
+    public void registrarEventos() {
+        System.out.println("Registrando eventos históricos em: " + localizacao);
+    }
+
+
+    public String getConsequencias() {
+        return consequencias;
+    }
+
+    public void setConsequencias(String consequencias) {
+        this.consequencias = consequencias;
+    }
+
+    public String getDescobertas() {
+        return descobertas;
+    }
+
+    public void setDescobertas(String descobertas) {
+        this.descobertas = descobertas;
+    }
+
+    public String getLocalizacao() {
+        return localizacao;
+    }
+
+    public void setLocalizacao(String localizacao) {
+        this.localizacao = localizacao;
+    }
+}
