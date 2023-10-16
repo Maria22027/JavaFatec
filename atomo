@@ -1,0 +1,48 @@
+public class Atomo {
+
+    private int numeroAtomico;
+    private double massaAtomica;
+    private String nucleo;
+
+    public Atomo(int numeroAtomico, double massaAtomica, String nucleo) {
+        this.numeroAtomico = numeroAtomico;
+        this.massaAtomica = massaAtomica;
+        this.nucleo = nucleo;
+    }
+    public void instituirMateria() {
+        System.out.println("Instituindo a matéria para o átomo com número atômico " + numeroAtomico);
+    }
+
+    public double calcularEnergia() {
+        return massaAtomica * Math.pow(3.0 * Math.pow(10, 8), 2);
+    }
+
+    public void transmitirRadiacao() {
+        System.out.println("Transmitindo radiação a partir do átomo com número atômico " + numeroAtomico);
+    }
+
+
+    public int getNumeroAtomico() {
+        return numeroAtomico;
+    }
+
+    public void setNumeroAtomico(int numeroAtomico) {
+        this.numeroAtomico = numeroAtomico;
+    }
+
+    public double getMassaAtomica() {
+        return massaAtomica;
+    }
+
+    public void setMassaAtomica(double massaAtomica) {
+        this.massaAtomica = massaAtomica;
+    }
+
+    public String getNucleo() {
+        return nucleo;
+    }
+
+    public void setNucleo(String nucleo) {
+        this.nucleo = nucleo;
+    }
+}
