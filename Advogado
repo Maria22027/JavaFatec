@@ -1,0 +1,42 @@
+public class Advogado {
+
+    private int criatividade;
+    private int persuasao;
+
+    public Advogado(int criatividade, int persuasao) {
+        this.criatividade = criatividade;
+        this.persuasao = persuasao;
+    }
+
+    // Métodos
+    public void especializacao(String areaEspecializacao) {
+        System.out.println("Especializando-se na área de " + areaEspecializacao);
+    }
+
+    public void comunicacao() {
+        System.out.println("Aprimorando habilidades de comunicação para persuadir e argumentar");
+    }
+
+    public String numeroOAB(String estado) {
+        String numeroOAB = estado + "-" + (int) (Math.random() * 1000000);
+        System.out.println("Número da OAB gerado: " + numeroOAB);
+        return numeroOAB;
+    }
+
+
+    public int getCriatividade() {
+        return criatividade;
+    }
+
+    public void setCriatividade(int criatividade) {
+        this.criatividade = criatividade;
+    }
+
+    public int getPersuasao() {
+        return persuasao;
+    }
+
+    public void setPersuasao(int persuasao) {
+        this.persuasao = persuasao;
+    }
+}
