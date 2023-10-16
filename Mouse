@@ -1,0 +1,51 @@
+public class Mouse {
+
+    private String tamanho;
+    private String modelo;
+    private int botoes;
+
+    public Mouse(String tamanho, String modelo, int botoes) {
+        this.tamanho = tamanho;
+        this.modelo = modelo;
+        this.botoes = botoes;
+    }
+
+    public void clicar() {
+
+        System.out.println("Clicando com o mouse modelo " + modelo);
+    }
+
+    public void arrastar() {
+
+        System.out.println("Arrastando o mouse modelo " + modelo);
+    }
+
+    public void interagir() {
+
+        System.out.println("Interagindo com o mouse modelo " + modelo);
+    }
+
+    public String getTamanho() {
+        return tamanho;
+    }
+
+    public void setTamanho(String tamanho) {
+        this.tamanho = tamanho;
+    }
+
+    public String getModelo() {
+        return modelo;
+    }
+
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
+    }
+
+    public int getBotoes() {
+        return botoes;
+    }
+
+    public void setBotoes(int botoes) {
+        this.botoes = botoes;
+    }
+}
