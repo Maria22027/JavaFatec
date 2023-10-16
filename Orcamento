@@ -1,0 +1,51 @@
+public class OrcamentoPublico {
+
+    private double valorOrcamento;
+    private double receita;
+    private double gastos;
+
+    public OrcamentoPublico(double valorOrcamento, double receita, double gastos) {
+        this.valorOrcamento = valorOrcamento;
+        this.receita = receita;
+        this.gastos = gastos;
+    }
+
+    public void financiar(double valorFinanciamento) {
+
+        this.receita += valorFinanciamento;
+        System.out.println("Financiamento de R$" + valorFinanciamento + " realizado.");
+    }
+
+    public void gerarRelatorios() {
+        System.out.println("Relatórios gerados.");
+    }
+
+    public double calcular() {
+
+        return receita - gastos;
+    }
+
+    public double getValorOrcamento() {
+        return valorOrcamento;
+    }
+
+    public void setValorOrcamento(double valorOrcamento) {
+        this.valorOrcamento = valorOrcamento;
+    }
+
+    public double getReceita() {
+        return receita;
+    }
+
+    public void setReceita(double receita) {
+        this.receita = receita;
+    }
+
+    public double getGastos() {
+        return gastos;
+    }
+
+    public void setGastos(double gastos) {
+        this.gastos = gastos;
+    }
+}
