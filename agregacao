@@ -1,0 +1,52 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+class Aluno {
+    private String nome;
+
+    public Aluno(String nome) {
+        this.nome = nome;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+}
+
+class Disciplina {
+    private String nome;
+    private List<Aluno> alunos = new ArrayList<>();
+
+    public Disciplina(String nome) {
+        this.nome = nome;
+    }
+
+    public void adicionarAluno(Aluno aluno) {
+        alunos.add(aluno);
+    }
+
+    public void listarAlunos() {
+        System.out.println("Alunos na disciplina " + nome + ":");
+        for (Aluno aluno : alunos) {
+            System.out.println(aluno.getNome());
+        }
+    }
+}
+
+public class AgregacaoExemplo {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Digite o nome da disciplina: ");
+        String nomeDisciplina = scanner.nextLine();
+
+        Disciplina disciplina = new Disciplina(nomeDisciplina);
+
+        System.out.print("Digite o nome do aluno: ");
+        String nomeAluno = scanner.nextLine();
+        Aluno aluno = new Aluno(nomeAluno);
+
+        disciplina.adicionarAluno(aluno);
+        disciplina.listarAlunos();
+    }
+}
