@@ -1,0 +1,65 @@
+class Funcionario {
+    private String nome;
+
+    public Funcionario(String nome) {
+        this.nome = nome;
+    }
+
+    public void baterOPonto() {
+        System.out.println(nome + " bateu o ponto.");
+    }
+
+    public void fecharOuCaxa() {
+        System.out.println(nome + " fechou o caixa.");
+    }
+}
+
+class Gerente extends Funcionario {
+    public Gerente(String nome) {
+        super(nome);
+    }
+
+    public void realizarVenda() {
+        System.out.println(getNome() + " realizou uma venda.");
+    }
+}
+
+class Vendedor extends Funcionario {
+    public Vendedor(String nome) {
+        super(nome);
+    }
+
+    public void realizarVenda() {
+        System.out.println(getNome() + " realizou uma venda.");
+    }
+}
+
+class Faxineiro extends Funcionario {
+    public Faxineiro(String nome) {
+        super(nome);
+    }
+
+    public void solicitarMaterial() {
+        System.out.println(getNome() + " solicitou material de limpeza.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Gerente gerente = new Gerente("Carlos");
+        Vendedor vendedor = new Vendedor("Maria");
+        Faxineiro faxineiro = new Faxineiro("Joao");
+
+        gerente.baterOPonto();
+        gerente.fecharOuCaxa();
+        gerente.realizarVenda();
+
+        vendedor.baterOPonto();
+        vendedor.fecharOuCaxa();
+        vendedor.realizarVenda();
+
+        faxineiro.baterOPonto();
+        faxineiro.fecharOuCaxa();
+        faxineiro.solicitarMaterial();
+    }
+}
