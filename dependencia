@@ -1,0 +1,42 @@
+import java.util.Scanner;
+
+class Compra {
+    public void finalizar(Cupom cupom) {
+        System.out.println("Compra finalizada com o cupom: " + cupom.getCodigo());
+    }
+}
+
+class Cupom {
+    private String codigo;
+
+    public Cupom(String codigo) {
+        this.codigo = codigo;
+    }
+
+    public String getCodigo() {
+        return codigo;
+    }
+}
+
+public class DependenciaExemplo {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Digite o nome de um filme: ");
+        String nomeFilme = scanner.nextLine();
+
+        System.out.println("Você escolheu o filme: " + nomeFilme);
+
+        System.out.print("Deseja confirmar a escolha (S/N)? ");
+        String confirmacao = scanner.nextLine();
+
+        if (confirmacao.equalsIgnoreCase("S")) {
+            String codigoCupom = "FILME123"; // Suponha que o código do cupom seja fixo para o filme escolhido.
+            Cupom cupom = new Cupom(codigoCupom);
+            Compra compra = new Compra();
+            compra.finalizar(cupom);
+        } else {
+            System.out.println("Compra cancelada.");
+        }
+    }
+}
