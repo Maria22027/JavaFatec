@@ -1,0 +1,48 @@
+import java.util.Scanner;
+
+class Endereco {
+    private String rua;
+    private String cidade;
+    private String estado;
+
+    public Endereco(String rua, String cidade, String estado) {
+        this.rua = rua;
+        this.cidade = cidade;
+        this.estado = estado;
+    }
+
+    public String toString() {
+        return rua + ", " + cidade + ", " + estado;
+    }
+}
+
+class Pessoa {
+    private Endereco endereco;
+
+    public void definirEndereco(Endereco endereco) {
+        this.endereco = endereco;
+    }
+
+    public Endereco getEndereco() {
+        return endereco;
+    }
+}
+
+public class ComposicaoExemplo {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Digite o nome da rua: ");
+        String rua = scanner.nextLine();
+        System.out.print("Digite o nome da cidade: ");
+        String cidade = scanner.nextLine();
+        System.out.print("Digite o estado: ");
+        String estado = scanner.nextLine();
+
+        Endereco endereco = new Endereco(rua, cidade, estado);
+
+        Pessoa pessoa = new Pessoa();
+        pessoa.definirEndereco(endereco);
+
+        System.out.println("Endereço da pessoa: " + pessoa.getEndereco());
+    }
+}
