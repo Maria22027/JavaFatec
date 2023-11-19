@@ -1,0 +1,96 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
+public class CadastroProdutoForm extends JFrame {
+
+    private JTextField nomeField, precoField;
+    private JButton cadastrarButton;
+    private JTextArea resultadoArea;
+    private ArrayList<Produto> listaProdutos;
+
+    public CadastroProdutoForm() {
+        // Configuração do formulário
+        setTitle("Cadastro de Produtos");
+        setSize(400, 300);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+
+        // Criando componentes
+        JLabel nomeLabel = new JLabel("Nome:");
+        JLabel precoLabel = new JLabel("Preço:");
+
+        nomeField = new JTextField(20);
+        precoField = new JTextField(10);
+
+        cadastrarButton = new JButton("Cadastrar");
+        resultadoArea = new JTextArea(10, 30);
+        listaProdutos = new ArrayList<>();
+
+        // Layout
+        setLayout(new GridLayout(4, 2, 5, 5));
+
+        // Adicionando componentes ao formulário
+        add(nomeLabel);
+        add(nomeField);
+        add(precoLabel);
+        add(precoField);
+        add(new JLabel()); // Espaço vazio
+        add(new JLabel());
+        add(cadastrarButton);
+        add(resultadoArea);
+
+        // Adicionando um ouvinte de ação ao botão
+        cadastrarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cadastrarProduto();
+            }
+        });
+    }
+
+    private void cadastrarProduto() {
+        // Obtendo dados do formulário
+        String nome = nomeField.getText();
+        double preco = Double.parseDouble(precoField.getText());
+
+        // Criando um objeto produto
+        Produto produto = new Produto(nome, preco);
+
+        // Adicionando o produto à lista
+        listaProdutos.add(produto);
+
+        // Exibindo os nomes dos produtos na área de texto usando forEach
+        resultadoArea.setText("");
+        listaProdutos.forEach(p -> resultadoArea.append(p.getNome() + "\n"));
+
+        // Limpando os campos do formulário
+        nomeField.setText("");
+        precoField.setText("");
+    }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                new CadastroProdutoForm().setVisible(true);
+            }
+        });
+    }
+}
+
+class Produto {
+    private String nome;
+    private double preco;
+
+    public Produto(String nome, double preco) {
+        this.nome = nome;
+        this.preco = preco;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+}
