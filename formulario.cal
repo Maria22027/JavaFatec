@@ -1,0 +1,98 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
+public class CalculadoraForm extends JFrame {
+
+    private JTextField numeroField;
+    private JButton adicionarButton, calcularMediaButton;
+    private JTextArea resultadoArea;
+    private ArrayList<Integer> listaNumeros;
+
+    public CalculadoraForm() {
+        // Configuração do formulário
+        setTitle("Calculadora de Média");
+        setSize(400, 300);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+
+        // Criando componentes
+        JLabel numeroLabel = new JLabel("Número:");
+        numeroField = new JTextField(10);
+        adicionarButton = new JButton("Adicionar Número");
+        calcularMediaButton = new JButton("Calcular Média");
+        resultadoArea = new JTextArea(10, 30);
+        listaNumeros = new ArrayList<>();
+
+        // Layout
+        setLayout(new GridLayout(4, 1, 5, 5));
+
+        // Adicionando componentes ao formulário
+        add(numeroLabel);
+        add(numeroField);
+        add(adicionarButton);
+        add(calcularMediaButton);
+        add(resultadoArea);
+
+        // Adicionando ouvintes de ação aos botões
+        adicionarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                adicionarNumero();
+            }
+        });
+
+        calcularMediaButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                calcularMedia();
+            }
+        });
+    }
+
+    private void adicionarNumero() {
+        try {
+            int numero = Integer.parseInt(numeroField.getText());
+            listaNumeros.add(numero);
+            resultadoArea.setText("Número adicionado: " + numero + "\n");
+            numeroField.setText(""); // Limpar o campo após adição
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(this, "Por favor, insira um número inteiro válido.", "Erro", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    private void calcularMedia() {
+        try {
+            double media = CalculadoraNumeros.calcularMedia(listaNumeros);
+            resultadoArea.append("Média dos números: " + media + "\n");
+        } catch (ArithmeticException ex) {
+            JOptionPane.showMessageDialog(this, "A lista de números está vazia. Adicione pelo menos um número.", "Erro", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                new CalculadoraForm().setVisible(true);
+            }
+        });
+    }
+}
+
+class CalculadoraNumeros {
+    public static double calcularMedia(ArrayList<Integer> numeros) throws ArithmeticException {
+        if (numeros.isEmpty()) {
+            throw new ArithmeticException("A lista de números está vazia.");
+        }
+
+        int soma = 0;
+        for (int numero : numeros) {
+            soma += numero;
+        }
+
+        return (double) soma / numeros.size();
+    }
+}
