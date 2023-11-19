@@ -1,0 +1,119 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class CadastroClienteForm extends JFrame {
+
+    private JTextField nomeField, idadeField, sexoField, emailField, telefoneField, cpfField, dataNascimentoField;
+    private JTextArea resultadoArea;
+
+    public CadastroClienteForm() {
+        // Configuração do formulário
+        setTitle("Cadastro de Clientes");
+        setSize(400, 300);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+
+        // Criando componentes
+        JLabel nomeLabel = new JLabel("Nome:");
+        JLabel idadeLabel = new JLabel("Idade:");
+        JLabel sexoLabel = new JLabel("Sexo:");
+        JLabel emailLabel = new JLabel("Email:");
+        JLabel telefoneLabel = new JLabel("Telefone:");
+        JLabel cpfLabel = new JLabel("CPF:");
+        JLabel dataNascimentoLabel = new JLabel("Data de Nascimento:");
+
+        nomeField = new JTextField(20);
+        idadeField = new JTextField(5);
+        sexoField = new JTextField(1);
+        emailField = new JTextField(20);
+        telefoneField = new JTextField(15);
+        cpfField = new JTextField(11);
+        dataNascimentoField = new JTextField(10);
+
+        JButton cadastrarButton = new JButton("Cadastrar");
+        resultadoArea = new JTextArea(10, 30);
+
+        // Layout
+        setLayout(new GridLayout(8, 2, 5, 5));
+
+        // Adicionando componentes ao formulário
+        add(nomeLabel);
+        add(nomeField);
+        add(idadeLabel);
+        add(idadeField);
+        add(sexoLabel);
+        add(sexoField);
+        add(emailLabel);
+        add(emailField);
+        add(telefoneLabel);
+        add(telefoneField);
+        add(cpfLabel);
+        add(cpfField);
+        add(dataNascimentoLabel);
+        add(dataNascimentoField);
+        add(cadastrarButton);
+        add(resultadoArea);
+
+        // Adicionando um ouvinte de ação ao botão
+        cadastrarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cadastrarCliente();
+            }
+        });
+    }
+
+    private void cadastrarCliente() {
+        // Obtendo dados do formulário
+        String nome = nomeField.getText();
+        int idade = Integer.parseInt(idadeField.getText());
+        String sexo = sexoField.getText();
+        String email = emailField.getText();
+        String telefone = telefoneField.getText();
+        String cpf = cpfField.getText();
+        String dataNascimento = dataNascimentoField.getText();
+
+        // Criando um objeto cliente
+        Cliente cliente = new Cliente(nome, idade, sexo, email, telefone, cpf, dataNascimento);
+
+        // Exibindo as informações na área de texto
+        resultadoArea.setText(cliente.toString());
+    }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                new CadastroClienteForm().setVisible(true);
+            }
+        });
+    }
+}
+
+class Cliente {
+    private String nome;
+    private int idade;
+    private String sexo;
+    private String email;
+    private String telefone;
+    private String cpf;
+    private String dataNascimento;
+
+    public Cliente(String nome, int idade, String sexo, String email, String telefone, String cpf, String dataNascimento) {
+        this.nome = nome;
+        this.idade = idade;
+        this.sexo = sexo;
+        this.email = email;
+        this.telefone = telefone;
+        this.cpf = cpf;
+        this.dataNascimento = dataNascimento;
+    }
+
+    @Override
+    public String toString() {
+        return "Nome: " + nome + "\nIdade: " + idade + "\nSexo: " + sexo + "\nEmail: " + email +
+                "\nTelefone: " + telefone + "\nCPF: " + cpf + "\nData de Nascimento: " + dataNascimento;
+    }
+}
