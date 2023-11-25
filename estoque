@@ -1,0 +1,83 @@
+import java.util.ArrayList;
+
+// Classe base para Produto
+class Produto {
+    private String nome;
+    private double preco;
+
+    public Produto(String nome, double preco) {
+        this.nome = nome;
+        this.preco = preco;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public double getPreco() {
+        return preco;
+    }
+
+    // Outros métodos e atributos comuns podem ser adicionados aqui
+}
+
+// Classe para ProdutoEletronico que herda de Produto
+class ProdutoEletronico extends Produto {
+    private boolean ligado;
+
+    public ProdutoEletronico(String nome, double preco) {
+        super(nome, preco);
+        this.ligado = false;
+    }
+
+    public void ligar() {
+        ligado = true;
+        System.out.println(getNome() + " ligado.");
+    }
+
+    // Outros métodos específicos para ProdutoEletronico podem ser adicionados aqui
+}
+
+// Classe para ProdutoRoupa que herda de Produto
+class ProdutoRoupa extends Produto {
+    private String tamanho;
+
+    public ProdutoRoupa(String nome, double preco, String tamanho) {
+        super(nome, preco);
+        this.tamanho = tamanho;
+    }
+
+    public String getTamanho() {
+        return tamanho;
+    }
+
+    // Outros métodos específicos para ProdutoRoupa podem ser adicionados aqui
+}
+
+public class SistemaGestaoEstoque {
+    public static void main(String[] args) {
+        // Criando uma lista de produtos usando ArrayList
+        ArrayList<Produto> estoque = new ArrayList<>();
+
+        // Adicionando instâncias de ProdutoEletronico e ProdutoRoupa à lista
+        estoque.add(new ProdutoEletronico("Smartphone", 899.99));
+        estoque.add(new ProdutoRoupa("Camiseta", 29.99, "M"));
+
+        // Iterando sobre a lista usando foreach
+        for (Produto produto : estoque) {
+            System.out.println("Nome: " + produto.getNome());
+            System.out.println("Preço: $" + produto.getPreco());
+
+            // Verificando o tipo de produto e realizando operações específicas
+            if (produto instanceof ProdutoEletronico) {
+                ProdutoEletronico eletronico = (ProdutoEletronico) produto;
+                eletronico.ligar();
+            } else if (produto instanceof ProdutoRoupa) {
+                ProdutoRoupa roupa = (ProdutoRoupa) produto;
+                System.out.println("Tamanho: " + roupa.getTamanho());
+            }
+
+            System.out.println("--------");
+        }
+    }
+}
