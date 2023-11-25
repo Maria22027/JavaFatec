@@ -1,0 +1,82 @@
+import java.util.ArrayList;
+
+// Classe base para Funcionário
+class Funcionario {
+    private String nome;
+    private int idade;
+
+    public Funcionario(String nome, int idade) {
+        this.nome = nome;
+        this.idade = idade;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public int getIdade() {
+        return idade;
+    }
+
+    // Outros métodos e atributos comuns podem ser adicionados aqui
+}
+
+// Classe para Gerente que herda de Funcionario
+class Gerente extends Funcionario {
+    private String departamento;
+
+    public Gerente(String nome, int idade, String departamento) {
+        super(nome, idade);
+        this.departamento = departamento;
+    }
+
+    public String getDepartamento() {
+        return departamento;
+    }
+
+    // Métodos específicos para Gerente podem ser adicionados aqui
+}
+
+// Classe para Desenvolvedor que herda de Funcionario
+class Desenvolvedor extends Funcionario {
+    private String linguagem;
+
+    public Desenvolvedor(String nome, int idade, String linguagem) {
+        super(nome, idade);
+        this.linguagem = linguagem;
+    }
+
+    public String getLinguagem() {
+        return linguagem;
+    }
+
+    // Métodos específicos para Desenvolvedor podem ser adicionados aqui
+}
+
+public class SistemaGestaoFuncionarios {
+    public static void main(String[] args) {
+        // Criando uma lista de funcionários usando ArrayList
+        ArrayList<Funcionario> funcionarios = new ArrayList<>();
+
+        // Adicionando instâncias de Gerente e Desenvolvedor à lista
+        funcionarios.add(new Gerente("João", 35, "TI"));
+        funcionarios.add(new Desenvolvedor("Maria", 28, "Java"));
+
+        // Iterando sobre a lista usando foreach
+        for (Funcionario funcionario : funcionarios) {
+            System.out.println("Nome: " + funcionario.getNome());
+            System.out.println("Idade: " + funcionario.getIdade());
+
+            // Verificando o tipo de funcionário e imprimindo informações específicas
+            if (funcionario instanceof Gerente) {
+                Gerente gerente = (Gerente) funcionario;
+                System.out.println("Departamento: " + gerente.getDepartamento());
+            } else if (funcionario instanceof Desenvolvedor) {
+                Desenvolvedor desenvolvedor = (Desenvolvedor) funcionario;
+                System.out.println("Linguagem: " + desenvolvedor.getLinguagem());
+            }
+
+            System.out.println("--------");
+        }
+    }
+}
