@@ -1,0 +1,82 @@
+import java.util.ArrayList;
+
+// Classe base para Contato
+class Contato {
+    private String nome;
+    private String telefone;
+
+    public Contato(String nome, String telefone) {
+        this.nome = nome;
+        this.telefone = telefone;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    // Outros métodos e atributos comuns podem ser adicionados aqui
+}
+
+// Classe para ContatoPessoal que herda de Contato
+class ContatoPessoal extends Contato {
+    private String relacao;
+
+    public ContatoPessoal(String nome, String telefone, String relacao) {
+        super(nome, telefone);
+        this.relacao = relacao;
+    }
+
+    public String getRelacao() {
+        return relacao;
+    }
+
+    // Outros métodos específicos para ContatoPessoal podem ser adicionados aqui
+}
+
+// Classe para ContatoProfissional que herda de Contato
+class ContatoProfissional extends Contato {
+    private String cargo;
+
+    public ContatoProfissional(String nome, String telefone, String cargo) {
+        super(nome, telefone);
+        this.cargo = cargo;
+    }
+
+    public String getCargo() {
+        return cargo;
+    }
+
+    // Outros métodos específicos para ContatoProfissional podem ser adicionados aqui
+}
+
+public class SistemaGestaoContatos {
+    public static void main(String[] args) {
+        // Criando uma lista de contatos usando ArrayList
+        ArrayList<Contato> contatos = new ArrayList<>();
+
+        // Adicionando instâncias de ContatoPessoal e ContatoProfissional à lista
+        contatos.add(new ContatoPessoal("Ana", "123456789", "Amiga"));
+        contatos.add(new ContatoProfissional("Carlos", "987654321", "Desenvolvedor"));
+
+        // Iterando sobre a lista usando foreach
+        for (Contato contato : contatos) {
+            System.out.println("Nome: " + contato.getNome());
+            System.out.println("Telefone: " + contato.getTelefone());
+
+            // Verificando o tipo de contato e realizando operações específicas
+            if (contato instanceof ContatoPessoal) {
+                ContatoPessoal pessoal = (ContatoPessoal) contato;
+                System.out.println("Relação: " + pessoal.getRelacao());
+            } else if (contato instanceof ContatoProfissional) {
+                ContatoProfissional profissional = (ContatoProfissional) contato;
+                System.out.println("Cargo: " + profissional.getCargo());
+            }
+
+            System.out.println("--------");
+        }
+    }
+}
