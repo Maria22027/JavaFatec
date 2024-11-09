@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">ViaCep</string>
+    <string name="cep_incorreto">O CEP digitado está incorreto. Por favor, verifique e tente novamente.</string>
+</resources>
